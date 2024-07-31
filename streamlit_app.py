@@ -147,22 +147,17 @@ def feedback():
     )
 
 
-# Function for the "Home" page
-def home():
-    st.title("Home 🏠")
-    st.write("Welcome to the home page. Add your content here.")
 
 # Set sidebar style
 set_sidebar_style()
 
 # Sidebar navigation
-page = st.sidebar.radio("Navigation", [ "Plan New Trip", "Feedback", "Home"])
+page = st.sidebar.radio("Navigation", [ "Plan New Trip", "Feedback"])
 
 # Page selection based on sidebar navigation
 if page == "Plan New Trip":
     plan_new_trip()
 elif page == "Feedback":
     feedback()
-elif page == "Home":
-    home()
+
     
