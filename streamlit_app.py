@@ -54,88 +54,6 @@ def set_sidebar_style():
         unsafe_allow_html=True
     )
 
-# Function for the "About Us" page
-def about_us():
-    st.title("About Us ℹ️")
-    st.write("At JAD AI, we're passionate about making travel planning easy and enjoyable for everyone. "
-             "Our team of experienced professionals is dedicated to providing innovative solutions "
-             "that help travelers explore the world with confidence.")
-    st.write('\n' * 3)
-    # Team Bios
-    st.header("MEET OUR TEAM")
-    st.write("Get to know the talented individuals behind JAD AI:")
-    
-    # Team Members
-    team_members = [
-        {"name": "Aryan Patel", "role": "User Interface", "bio": "Aryan is a creative designer who focuses on delivering intuitive user experiences.",
-         "image": "1aryan.jpg"},
-        {"name": "Dhairya Patel", "role": "API Research", "bio": "Dhairya is a tech enthusiast with expertise in API research and integration.",
-         "image": "1dhairya.jpg"},
-        {"name": "Jay Vaishnav", "role": "Documentation", "bio": "Jay is a detail-oriented writer who specializes in technical documentation and content creation.",
-         "image": "3jay.jpg"},
-    ]
-    
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.image(team_members[0]["image"])
-        st.write(team_members[0]["name"])
-        st.write(team_members[0]["role"])
-        st.write(team_members[0]["bio"])
-
-    with col2:
-        st.image(team_members[1]["image"])
-        st.write(team_members[1]["name"])
-        st.write(team_members[1]["role"])
-        st.write(team_members[1]["bio"])
-
-    with col3:
-        st.image(team_members[2]["image"])
-        st.write(team_members[2]["name"])
-        st.write(team_members[2]["role"])
-        st.write(team_members[2]["bio"])
-
-
-    st.write('\n' * 3)
-    
-    st.header("CONNECT WITH US")
-    st.write("Follow us on social media to stay updated:")
-
-    social_media = [
-        {"platform": "Instagram", "handle": " @jadai.travel", "icon": "instagram.png"},
-        {"platform": "Gmail", "handle": " jadai.travel@gmail.com", "icon": "email.png"},
-    ]
-
-    col1, col2 = st.columns([1,15])
-
-# Iterate over social media platforms
-    for platform in social_media:
-        # Add icon and handle to respective columns
-        with col1:
-            st.image(f"{platform['icon']}", width=25)
-        with col2:
-             st.markdown(f"<p style='font-size:16px;'>{platform['platform']}: {platform['handle']}</p>", unsafe_allow_html=True)
-
-        st.write('\n' * 3)
-    
-    # Customer Testimonials
-    st.header("CUSTOMER TESTIMONIALS")
-    
-    testimonials = [
-        {"user": "Sarah Patel", "review": "I absolutely love using JAD AI for all my travel planning needs! The platform is intuitive, and it helps me discover hidden gems in every destination. Highly recommended. Thanks to JAD Ai!"},
-        {"user": "Aditya Kumar", "review": "JAD AI has revolutionized the way I plan my trips. The personalized itineraries and insightful recommendations make every journey memorable. Thanks to the team for their exceptional service!"},
-        {"user": "Yogendra ", "review": "As a frequent traveler, I rely on JAD AI to streamline my itinerary planning process. The platform's user-friendly interface and AI-powered suggestions have saved me countless hours of research!"}
-    ]
-    st.write('\n' * 3)
-    testimonial_cols = st.columns(3)
-    
-    for i, testimonial in enumerate(testimonials):
-        with testimonial_cols[i % 3]:
-            st.markdown(f"<p style='text-align:center; font-weight:bold;font-size:20px;'>{testimonial['user']}</p>", unsafe_allow_html=True)
-            st.write(f"\"{testimonial['review']}\"")
-            st.write("---")
-
-# Function for the "Plan New Trip" page
 def plan_new_trip():
     st.title("Plan New Trip 🗺️")
     destination = st.text_input("Destination:", "")
@@ -209,7 +127,7 @@ def feedback():
 </style>
 
 <div class="form-container">
-<form action="https://submit-form.com/W8y04J5LF">
+<form action="https://submit-form.com/Wf715lesS">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name" required="" />
         <label for="email">Email</label>
@@ -238,12 +156,10 @@ def home():
 set_sidebar_style()
 
 # Sidebar navigation
-page = st.sidebar.radio("Navigation", ["About Us", "Plan New Trip", "Feedback", "Home"])
+page = st.sidebar.radio("Navigation", [ "Plan New Trip", "Feedback", "Home"])
 
 # Page selection based on sidebar navigation
-if page == "About Us":
-    about_us()
-elif page == "Plan New Trip":
+if page == "Plan New Trip":
     plan_new_trip()
 elif page == "Feedback":
     feedback()
